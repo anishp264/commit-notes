@@ -6,5 +6,3 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/commitNotes
         id: hello
-        with:
-          who-to-greet: "World/Planet"

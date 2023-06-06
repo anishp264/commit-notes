@@ -1,14 +1,6 @@
 name: Get Commit Notes
 author: Anish Punnen
 description: Action to Fetch Commit Notes
-inputs:
-  who-to-greet:
-    description: 'Who to greet'
-    required: true
-    default: Ali
-outputs:
-  time:
-    description: 'The greeting time'
 runs:
   using: "node16"
   main: "index.js"
