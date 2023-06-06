@@ -1,6 +1,6 @@
 name: Get Commit Notes
 author: Anish Punnen
-description: Action to Fetch Commit Notes
+description: Action to Fetch Commit Notes -- modified
 runs:
   using: "node12"
   main: "dist/index.js"
