@@ -24,14 +24,22 @@ async function getCommitMessages(owner, repo, pullRequestNumber) {
 // Example usage
 const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
 const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
-const ev = JSON.parse(
+/*const ev = JSON.parse(
     fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
   )
 const prNum = ev.pull_request.number
 //const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
-console.log('Commit pullRequestNumber:', prNum);
+console.log('Commit pullRequestNumber:', prNum);*/
 
-getCommitMessages(owner, repo, 11)
+const githubRef = process.env.GITHUB_REF;
+const pullRequestRegex = /refs\/pull\/(\d+)\/merge/;
+
+const match = githubRef.match(pullRequestRegex);
+const pullNumber = match ? match[1] : null;
+
+console.log('Pull Request Number:', pullNumber);
+
+getCommitMessages(owner, repo, 12)
   .then(commitMessages => {
     console.log('Commit messages:', commitMessages);
   })
