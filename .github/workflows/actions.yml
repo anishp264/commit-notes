@@ -7,6 +7,6 @@ jobs:
       - uses: ./.github/actions/commitNotes
         id: hello
         with:
-          who-to-greet: "WORLD/ONE"
+          who-to-greet: "World!!"
       - run: |
           echo "Time: ${{ steps.hello.outputs.time }}"
