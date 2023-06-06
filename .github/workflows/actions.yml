@@ -1,8 +1,9 @@
-on: push
+on: [push, pull_request]
 jobs:
   hello-action:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/commitNotes
+      - name: Generate Commit Message On Push
+        uses: ./.github/actions/commitNotes
         id: hello

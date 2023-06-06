@@ -1,0 +1,6 @@
+name: Get Commit Messages
+author: Anish Punnen
+description: Action to Fetch Commit Messages for the Pull Request
+runs:
+  using: "node16"
+  main: "index.js"
