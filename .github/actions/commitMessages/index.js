@@ -51,7 +51,7 @@ const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
 const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
 //console.log('Commit pullRequestNumber:', pullRequestNumber);
 
-getCommitMessages(owner, repo, pullRequestNumber)
+getCommitMessages(owner, repo, 10)
   .then(commitMessages => {
     console.log('Commit messages:', commitMessages);
   })
