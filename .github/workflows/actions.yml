@@ -7,4 +7,4 @@ jobs:
       - uses: ./.github/actions/commitNotes
         id: hello
         with:
-          who-to-greet: "World!!"
+          who-to-greet: "World1!!"
