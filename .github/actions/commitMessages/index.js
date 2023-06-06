@@ -1,4 +1,5 @@
 const { Octokit } = require('@octokit/rest');
+const { fs } = require('fs');
 
 async function getCommitMessages(owner, repo, pullRequestNumber) {
     const octokit = new Octokit({
@@ -20,43 +21,20 @@ async function getCommitMessages(owner, repo, pullRequestNumber) {
   }
 }
 
-async function getCommits(owner, repo, pullRequestNumber) {
-    const octokit = new Octokit({
-        auth: process.env.GITHUB_TOKEN 
-      });
-
-  try {
-    await octokit.request('GET /repos/{owner}/{repo}/commits', {
-        owner: owner,
-        repo: repo,
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        }
-      }).then(({ data }) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  } catch (error) {
-    console.error('Error retrieving commit messages:', error);
-    return [];
-  }
-}
-
-
 // Example usage
 const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
 const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
-const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
-//console.log('Commit pullRequestNumber:', pullRequestNumber);
+const ev = JSON.parse(
+    fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
+  )
+const prNum = ev.pull_request.number
+//const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
+console.log('Commit pullRequestNumber:', prNum);
 
-getCommitMessages(owner, repo, 10)
+getCommitMessages(owner, repo, 11)
   .then(commitMessages => {
     console.log('Commit messages:', commitMessages);
   })
   .catch(error => {
     console.error('Error:', error);
 });
-//getCommits(owner, repo, pullRequestNumber);
-
