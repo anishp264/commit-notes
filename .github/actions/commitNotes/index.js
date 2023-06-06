@@ -1,10 +1,8 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
 const { Octokit } = require("@octokit/rest");
 
 async function getCommitMessage() {
     const octokit = new Octokit({
-      auth: process.env.GITHUB_TOKEN // Assumes you have a GitHub token set as a secret in your GitHub Action
+      auth: process.env.GITHUB_TOKEN 
     });
   
     const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
