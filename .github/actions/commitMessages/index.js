@@ -10,7 +10,7 @@ async function getCommitMessages(owner, repo, pullRequestNumber) {
       pull_number: pullRequestNumber,
     });
 
-    const commitMessages = response.data.map(commit => commit.commit.message);
+    const commitMessages = response.data.map(commit => commit.data.commit.message);
     return commitMessages;
   } catch (error) {
     console.error('Error retrieving commit messages:', error);
