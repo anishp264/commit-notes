@@ -58,5 +58,5 @@ const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
   .catch(error => {
     console.error('Error:', error);
 });*/
-getCommits('Commit pullRequestNumber:', 4);
+getCommits(owner, repo, pullRequestNumber);
 
