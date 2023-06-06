@@ -47,7 +47,7 @@ async function getCommits(owner, repo, pullRequestNumber) {
 const owner = process.env.GITHUB_REPOSITORY_OWNER;
 const repo = process.env.GITHUB_REPOSITORY;
 const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
-console.log('Commit pullRequestNumber:', pullRequestNumber);
+//console.log('Commit pullRequestNumber:', pullRequestNumber);
 
 /*getCommitMessages(owner, repo, pullRequestNumber)
   .then(commitMessages => {
@@ -56,4 +56,5 @@ console.log('Commit pullRequestNumber:', pullRequestNumber);
   .catch(error => {
     console.error('Error:', error);
 });*/
+getCommits('Commit pullRequestNumber:', 4);
 
