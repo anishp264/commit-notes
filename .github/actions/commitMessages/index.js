@@ -27,8 +27,8 @@ async function getCommits(owner, repo, pullRequestNumber) {
 
   try {
     await octokit.request('GET /repos/{owner}/{repo}/commits', {
-        owner: 'owner',
-        repo: 'repo',
+        owner: owner,
+        repo: repo,
         headers: {
           'X-GitHub-Api-Version': '2022-11-28'
         }
