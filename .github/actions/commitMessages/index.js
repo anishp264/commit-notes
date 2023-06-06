@@ -46,8 +46,8 @@ async function getCommits(owner, repo, pullRequestNumber) {
 
 
 // Example usage
-const owner = process.env.GITHUB_REPOSITORY_OWNER;
-const repo = process.env.GITHUB_REPOSITORY;
+const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
+const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
 const pullRequestNumber = process.env.GITHUB_EVENT_PULL_REQUEST_NUMBER;
 //console.log('Commit pullRequestNumber:', pullRequestNumber);
 
