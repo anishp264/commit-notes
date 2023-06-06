@@ -5,5 +5,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate Commit Message On Push
+        if: github.event_name == 'push'
         uses: ./.github/actions/commitNotes
         id: hello
+      - name: Generate Commit Messages on Pull Request
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/commitMessages
+        id: commitMsgs
+
+      
