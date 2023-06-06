@@ -1,7 +1,9 @@
 const { Octokit } = require('@octokit/rest');
 
 async function getCommitMessages(owner, repo, pullRequestNumber) {
-  const octokit = new Octokit();
+    const octokit = new Octokit({
+        auth: process.env.GITHUB_TOKEN 
+      });
 
   try {
     const response = await octokit.pulls.listCommits({
@@ -10,7 +12,7 @@ async function getCommitMessages(owner, repo, pullRequestNumber) {
       pull_number: pullRequestNumber,
     });
 
-    const commitMessages = response.data.map(commit => commit.data.commit.message);
+    const commitMessages = response.data.map(commit => commit.commit.message);
     return commitMessages;
   } catch (error) {
     console.error('Error retrieving commit messages:', error);
