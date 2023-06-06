@@ -26,11 +26,13 @@ async function getCommits(owner, repo, pullRequestNumber) {
       });
 
   try {
-    await octokit.pulls.listCommits({
-      owner,
-      repo,
-      pull_number: pullRequestNumber,
-    }).then(({ data }) => {
+    await octokit.request('GET /repos/{owner}/{repo}/commits', {
+        owner: 'owner',
+        repo: 'repo',
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      }).then(({ data }) => {
         console.log(data);
       })
       .catch((error) => {
