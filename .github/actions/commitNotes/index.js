@@ -23,13 +23,15 @@ async function getCommitMessage() {
       
 
       //New Section BEGINS
-      /*const committerName = commit.data.commit.committer.name;
-      const commitDate = commit.data.commit.committer.date;*/
-      const commitSha = commit.data.sha;
-          
-      /*console.log("Committer Name:", committerName);
-      console.log("Commit Date:", commitDate);*/
+      const commitSha = commit.data.commit.committer.name;
       console.log("Commit SHA:", commitSha);
+      const committerName = commit.data.commit.committer.name;
+      const commitDate = commit.data.commit.committer.date;
+      
+          
+      console.log("Committer Name:", committerName);
+      console.log("Commit Date:", commitDate);
+     
       //New Section ENDS
 
       return commitMessage;
