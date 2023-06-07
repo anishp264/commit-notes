@@ -77,15 +77,20 @@ async function getCommitMessage() {
     data.forEach((section) => {
       markdownContent += `## ${section.heading}\n\n${section.content}\n\n`;
     });
+
+    fs.writeFileSync("example.md", markdownContent);
+    console.log("Markdown file created successfully!");
+    console.log("READING FROM the example.md=>");
+    console.log(fs.readFileSync("example.md", "utf8"));
     
-    fs.writeFile('example.md', markdownContent, (err) => {
+    /*fs.writeFile('example.md', markdownContent, (err) => {
       if (err) {
         console.error('Error creating Markdown file:', err);
       } else {
         console.log('Markdown file created successfully!');
         console.log(fs.readFile("example.md", "utf8"));
       }
-    });
+    });*/
   }
   
   getCommitMessage();
