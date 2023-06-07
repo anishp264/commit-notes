@@ -83,6 +83,7 @@ async function getCommitMessage() {
         console.error('Error creating Markdown file:', err);
       } else {
         console.log('Markdown file created successfully!');
+        console.log(fs.readFile("example.md", "utf8"));
       }
     });
   }
