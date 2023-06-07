@@ -30,6 +30,8 @@ async function getCommitMessage() {
       console.log("Commit SHA:", commitSha);    
       console.log("Committer Name:", committerName);
       console.log("Commit Date:", commitDate);
+
+      createCommitDataContent(commitMessage, committerName, commitDate, commitSha);
      
       //New Section ENDS
 
@@ -38,6 +40,19 @@ async function getCommitMessage() {
       console.error("Error retrieving commit message:", error);
       return null;
     }
+  }
+
+  function createCommitDataContent(commitMessage, committerName, commitDate, sha){
+    const markdownContent = `
+    ## Commit Details
+
+    - Commit Message: ${commitMessage}
+    - Committer: ${committerName}
+    - Commit Date: ${commitDate}
+    - SHA: ${sha}
+    `;
+
+    console.log(`Commit Md content: => ${markdownContent}`);
   }
 
   function createMarkDownContent(){
@@ -107,5 +122,5 @@ async function getCommitMessage() {
   }
   
   getCommitMessage();
-  createMarkDownContent();
-  createMarkDownFromArray();
+  /*createMarkDownContent();
+  createMarkDownFromArray();*/
