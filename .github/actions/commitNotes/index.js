@@ -1,5 +1,6 @@
 const { Octokit } = require("@octokit/rest");
 
+
 async function getCommitMessage() {
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN 
@@ -24,5 +25,30 @@ async function getCommitMessage() {
       return null;
     }
   }
+
+  function createMarkDownContent(){
+    const markdownContent = `
+    # My Markdown File
+
+    This is a sample Markdown file created using JavaScript.
+
+    ## Markdown Syntax
+
+    You can use various Markdown syntax elements to format your text, such as:
+
+    - Headings
+    - Lists
+    - Bold and italic text
+    - Links
+    - Images
+    - and more...
+
+    For more information about Markdown syntax, you can refer to the [Markdown Guide](https://www.markdownguide.org/).
+
+    `;
+
+    console.log(`Md content: => ${markdownContent}`);
+  }
   
   getCommitMessage();
+  createMarkDownContent();
