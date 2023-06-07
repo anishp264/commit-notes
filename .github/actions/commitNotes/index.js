@@ -20,6 +20,18 @@ async function getCommitMessage() {
   
       const commitMessage = commit.data.commit.message;
       console.log("Commit Message:", commitMessage);
+      
+
+      //New Section BEGINS
+      const committerName = commit.data.commit.committer.name;
+      const commitDate = commit.data.commit.committer.date;
+      const commitSha = commit.data.commit.data.sha;
+          
+      console.log("Committer Name:", committerName);
+      console.log("Commit Date:", commitDate);
+      console.log("Commit SHA:", commitSha);
+      //New Section ENDS
+
       return commitMessage;
     } catch (error) {
       console.error("Error retrieving commit message:", error);
