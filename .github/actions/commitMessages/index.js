@@ -73,7 +73,6 @@ function getPRNumber(){
   return pullNumber;
 }
 
-// Example usage
 const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
 const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
 
