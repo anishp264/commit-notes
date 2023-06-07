@@ -1,4 +1,5 @@
 const { Octokit } = require("@octokit/rest");
+const fs = require('fs');
 
 
 async function getCommitMessage() {
@@ -48,6 +49,11 @@ async function getCommitMessage() {
     `;
 
     console.log(`Md content: => ${markdownContent}`);
+
+    fs.writeFileSync("programming.md", markdownContent);
+    console.log("File written successfully\n");
+    console.log("The written has the following contents:");
+    console.log(fs.readFileSync("programming.md", "utf8"));
   }
   
   getCommitMessage();
