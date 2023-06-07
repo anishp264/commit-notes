@@ -20,16 +20,25 @@ async function getCommitMessages(owner, repo, pullRequestNumber) {
   }
 }
 
+function getPRNumber(){
+  const githubRef = process.env.GITHUB_REF;
+  const pullRequestRegex = /refs\/pull\/(\d+)\/merge/;
+  const match = githubRef.match(pullRequestRegex);
+  const pullNumber = match ? match[1] : null;
+  return pullNumber;
+}
+
 // Example usage
 const owner = process.env.GITHUB_REPOSITORY.split("/")[0];
 const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
 
-
-const githubRef = process.env.GITHUB_REF;
+/*const githubRef = process.env.GITHUB_REF;
 const pullRequestRegex = /refs\/pull\/(\d+)\/merge/;
 
 const match = githubRef.match(pullRequestRegex);
-const pullNumber = match ? match[1] : null;
+const pullNumber = match ? match[1] : null;*/
+
+const pullNumber = getPRNumber();
 
 getCommitMessages(owner, repo, pullNumber)
   .then(commitMessages => {
