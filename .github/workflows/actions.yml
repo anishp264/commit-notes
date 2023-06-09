@@ -22,6 +22,6 @@ jobs:
         uses: anishp264/commit-notes-action@master
         id: commitNotes
       - run: |
-          echo "Commit Notes::::=> ${{ steps.commitNotes.outputs.commit-notes-md }}"
+          echo "Commit Notes: ${{ steps.commitNotes.outputs.commit-notes-md }}"
 
       
