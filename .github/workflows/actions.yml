@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Generate Commit Messages on Pull Request
         if: github.event_name == 'pull_request'
-        uses: anishp264/commit-notes-action@master
+        uses: anishp264/commit-notes-action@feature-create-commit-action
         id: commitNotes
       - run: |
           echo "Commit Notes:=> ${{ steps.commitNotes.outputs.commit-notes-md }}"
